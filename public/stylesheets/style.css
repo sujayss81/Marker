@@ -3,6 +3,7 @@ body {
   display: flex;
   justify-content: center;
   padding-top: 25vh;
+  background-color: lightslategray;
 }
 
 a {
@@ -34,6 +35,7 @@ h2{
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 5vh;
+  color: #ffffff
 }
 .regBox{
   width: 20%;

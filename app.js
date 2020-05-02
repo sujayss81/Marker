@@ -34,15 +34,6 @@ app.get('/',function(req,res){
   res.render('index');
 })
 
-app.post('/login',function(req,res){
-  if(req.body.pass == masterPassword){
-    res.redirect('/home');
-  }
-  else{
-    res.send("Wrong Password");
-  }
-})
-
 app.get('/home',function(req,res){
   res.render('home')
 })
@@ -55,6 +46,31 @@ app.get('/addStudent',function(req,res){
   res.render('student')
 })
 
+
+app.post('/login',function(req,res){
+  if(req.body.pass == masterPassword){
+    res.redirect('/home');
+  }
+  else{
+    res.send("Wrong Password");
+  }
+})
+
+app.post('/addTeacher',function(req,res,next){
+  var obj = { name: req.body.name, e_id: req.body.e_id, sub_id: req.body.sub_id, pass: req.body.e_id  }
+  dbs.collection('teachers').insertOne(obj, function(r,e){
+    if(e) next(e)
+    res.redirect('/addTeacher')
+  })
+})
+
+app.post('/addStudent',function(req,res,next){
+  var obj = { name: req.body.name, usn: req.body.usn, class: req.body.class, pass: req.body.usn  }
+  dbs.collection('students').insertOne(obj, function(r,e){
+    if(e) next(e)
+    res.redirect('/addStudent')
+  })
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
