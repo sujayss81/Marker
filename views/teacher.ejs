@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/css/mdb.min.css" rel="stylesheet">
+        <!-- Custom sheet -->
+        <link rel="stylesheet" href="stylesheets/register.css">
+    </head>
+    <body>
+        <div class="container regBox">
+            <h2>Add A Teacher</h2>
+            <form action="/addTeacher" method="POST">
+                <input type="text" name="name" placeholder="Name" class="form-control">
+                <input type="number" name="eid" placeholder="Employee Id" class="form-control">
+                <select name="sub_id" class="form-control">
+                    <option value="-">--</option>
+                    <option value="1">Maths</option>
+                    <option value="2">Physics</option>
+                    <option value="3">Chemistry</option>
+                    <option value="4">Computer</option>
+                </select>
+                <input type="submit" class="btn btn-success" value="Add">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+.regBox{
+    background-color:#eeeeee;
+    width: 40%;
+    margin-top: 30vh;
+    padding: 20px 20px 20px 20px;
+}
+input.form-control{
+    margin-bottom: 2vh;
+    text-align: center;
+}
+select.form-control{
+    width: 30%;
+}
+.btn{
+    margin-top: 2vh;
+}
+h2{
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 2vh;
+}
