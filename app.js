@@ -46,6 +46,58 @@ app.get('/addStudent',function(req,res){
   res.render('student')
 })
 
+app.post("/studentLogin",function(req,res){
+  var usn=req.body.usn;
+  var pass=req.body.pass;
+  dbs.collection('students').findOne({usn:usn,pass:pass},function(err,result){
+    if(err) {console.log(err);}
+    else{
+      if(result==null)
+      {
+        res.status(404);
+      }else
+      {res.send(result);}
+    }
+  });
+})
+
+app.post("/teacherLogin",function(req,res){
+  dbs.collection('teachers').findOne({e_id:req.body.eid, pass:req.body.pass},function(err,result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      if(result==null){
+        res.status(404);
+      }else{
+        // var eid=result.e_id;
+        // console.log(eid);
+        res.send(result);
+      }
+      
+    }
+  });
+})
+
+app.get("/generateQR/:subid",function(req,res){
+  dbs.collection('subjects').findOne({sub_id:req.params.subid},function(e,r){
+    if(e){
+     console.log(e);
+    }
+    else{
+      if(r==null){
+        // console.log("no data");
+        // res.send("no dATA");
+        res.status(404);
+      }else{
+      var qrObj={qr:r.sub_qr};
+      console.log(qrObj);
+      res.send(qrObj);
+      }
+    }
+  })
+})
+
 
 app.post('/login',function(req,res){
   if(req.body.pass == masterPassword){
