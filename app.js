@@ -176,6 +176,44 @@ app.get('/attendence/:stud_id/:sub_id',function(req,res){
 
 })
 
+app.get("/present/:date/:sub_id",function(req,res,next){
+  var date=req.params.date;
+  var sub_id=req.params.sub_id;
+  dbs.collection(date).find({sub_id:sub_id}).toArray(function(e,r){
+    if(e) {next(e);}
+    if(r==null)
+    {
+      res.status(404);
+      res.end();
+    }else{
+      res.status(200);
+      res.send(r);
+    } 
+  });
+
+});
+
+app.get("/absent/:date/:sub_id",function(req,res,next){
+  var date = req.params.date;
+  var sub_id = req.params.sub_id;
+  dbs.collection(date).find({ sub_id: sub_id }).toArray(function (e, r) {
+    if (e) {next(e); }
+    if(r==null){
+      res.status(404);
+      res.end();
+    }else{
+      dbs.collection(date).find({_id: {$nin: r._id}}).toArray(function(err,result){
+        if(err) next(err);
+        if(result==null){
+          console.log("everyone is present");
+        }else{
+          console.log(result);
+        }
+      })
+    }
+  });
+})
+
 
 app.post('/login',function(req,res){
   if(req.body.pass == masterPassword){
