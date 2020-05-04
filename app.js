@@ -49,49 +49,45 @@ app.get('/addStudent',function(req,res){
 
 app.post("/studentLogin",function(req,res,next){
   var usn=req.body.usn;
-  var pass=req.body.pass;
-  console.log(usn);
+  var pass=req.body.password;
+  console.log(req.body);
   dbs.collection('students').findOne({usn:usn,pass:pass},function(err,result){
     if(err) next(e);
     if(result==null)
     {
         res.status(404);
-    }else
-    {res.send(result);}
+        res.end();
+    }
+    else
+    {
+      res.send(result);
+    }
   });
 })
 
 app.post("/teacherLogin",function(req,res){
-  console.log(req.body.e_id);
-  console.log(req.body.pass);
-  dbs.collection('teachers').findOne({e_id:req.body.e_id, pass:req.body.pass},function(err,result){
+  var obj = {e_id:req.body.e_id, pass:req.body.password}
+  dbs.collection('teachers').findOne(obj,function(err,result){
     if(err) console.log(err);
-    console.log(result);
-    dbs.collection('subjects').findOne({sub_id:result.sub_id},function(e,r){
-      if(e) next(e);
-      if(r==null){
-        res.status(404);
-        res.end();
-      }
-      else{
-        var finalres={name:result.name, e_id:result.e_id, sub_id:result.sub_id, pass:result.pass, sub_name:r.sub_name};
-        res.status(200);
-        res.send(finalres);
-      }
-    })
-    // if(err){
-    //   console.log(err);
-    // }
-    // else{
-    //   if(result==null){
-    //     res.status(404);
-    //   }else{
-    //     // var eid=result.e_id;
-    //     // console.log(eid);
-    //     res.send(result);
-    //   }      
+    if(result == null){
+      res.status(404);
+      res.end();
     }
-);
+    else{
+      dbs.collection('subjects').findOne({sub_id:result.sub_id},function(e,r){
+        if(e) next(e);
+        if(r==null){
+          res.status(500);
+          res.end();
+        }
+        else{
+          var finalres={name:result.name, e_id:result.e_id, sub_id:result.sub_id, pass:result.pass, sub_name:r.sub_name};
+          res.status(200);
+          res.send(finalres);
+        }
+      })
+    }
+  });
 });
 
 app.post("/changePassword",function(req,res,next){
@@ -106,11 +102,11 @@ app.post("/changePassword",function(req,res,next){
       res.end();
     }else{
       var newvalues={ $set: {pass: newpass}};
-      dbs.collection('teachers').updateOne(r,newvalues,function(err,res){
-        if(err) { res.status(500); next(err); }
-        console.log(res);
+      dbs.collection('teachers').updateOne(r,newvalues,function(err,result){
+        if(err) { res.status(500);res.end(); next(err); }
+        // console.log(res);
         res.status(200);
-
+        res.end();
       })
     }
   })
@@ -156,12 +152,16 @@ app.get('/attendence/:stud_id/:sub_id',function(req,res){
         // console.log(r);
         if(r==0)
         {
-          dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, res) {
+          dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, result) {
             if (e) console.log(e);
-            console.log("inserted"+res);
+            console.log("inserted"+result);
+            res.status(200)
+            res.end()
             // console.log(res);
           })
         }else{
+          res.status(409)
+          res.end()
           console.log("already exists");
         }
       // console.log(count);
