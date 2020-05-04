@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var myDate=require("current-date");
 var MongoClient = require('mongodb').MongoClient;
 var dbs;
 MongoClient.connect("mongodb://localhost:27017/",function(err,db){
@@ -10,7 +11,7 @@ MongoClient.connect("mongodb://localhost:27017/",function(err,db){
   dbs = db.db('Marker');
   console.log("Database Connected");
 });
-
+// var bodyparser=require('body-parser');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -46,38 +47,76 @@ app.get('/addStudent',function(req,res){
   res.render('student')
 })
 
-app.post("/studentLogin",function(req,res){
+app.post("/studentLogin",function(req,res,next){
   var usn=req.body.usn;
   var pass=req.body.pass;
+  console.log(usn);
   dbs.collection('students').findOne({usn:usn,pass:pass},function(err,result){
-    if(err) {console.log(err);}
-    else{
-      if(result==null)
-      {
+    if(err) next(e);
+    if(result==null)
+    {
         res.status(404);
-      }else
-      {res.send(result);}
-    }
+    }else
+    {res.send(result);}
   });
 })
 
 app.post("/teacherLogin",function(req,res){
-  dbs.collection('teachers').findOne({e_id:req.body.eid, pass:req.body.pass},function(err,result){
-    if(err){
-      console.log(err);
-    }
-    else{
-      if(result==null){
+  console.log(req.body.e_id);
+  console.log(req.body.pass);
+  dbs.collection('teachers').findOne({e_id:req.body.e_id, pass:req.body.pass},function(err,result){
+    if(err) console.log(err);
+    console.log(result);
+    dbs.collection('subjects').findOne({sub_id:result.sub_id},function(e,r){
+      if(e) next(e);
+      if(r==null){
         res.status(404);
-      }else{
-        // var eid=result.e_id;
-        // console.log(eid);
-        res.send(result);
+        res.end();
       }
-      
+      else{
+        var finalres={name:result.name, e_id:result.e_id, sub_id:result.sub_id, pass:result.pass, sub_name:r.sub_name};
+        res.status(200);
+        res.send(finalres);
+      }
+    })
+    // if(err){
+    //   console.log(err);
+    // }
+    // else{
+    //   if(result==null){
+    //     res.status(404);
+    //   }else{
+    //     // var eid=result.e_id;
+    //     // console.log(eid);
+    //     res.send(result);
+    //   }      
     }
-  });
+);
+});
+
+app.post("/changePassword",function(req,res,next){
+  var eid=req.body.e_id;
+  var oldpassword=req.body.oldpassword;
+  var newpass=req.body.newpassword;
+  dbs.collection('teachers').findOne({e_id:eid,pass:oldpassword},function(e,r){
+    if(e) console.log(e);
+    if(r==null){
+      res.status(404);
+      console.log("hello");
+      res.end();
+    }else{
+      var newvalues={ $set: {pass: newpass}};
+      dbs.collection('teachers').updateOne(r,newvalues,function(err,res){
+        if(err) { res.status(500); next(err); }
+        console.log(res);
+        res.status(200);
+
+      })
+    }
+  })
 })
+
+
 
 app.get("/generateQR/:subid",function(req,res){
   dbs.collection('subjects').findOne({sub_id:req.params.subid},function(e,r){
@@ -96,6 +135,45 @@ app.get("/generateQR/:subid",function(req,res){
       }
     }
   })
+})
+
+app.get('/attendence/:stud_id/:sub_id',function(req,res){
+  var date=myDate('date');
+  var stud_id=req.params.stud_id;
+  var sub_id=req.params.sub_id;
+  var name;
+  dbs.collection('students').findOne({usn:stud_id},function(e,r){
+    if(e) console.log(e);
+    if(r==null){
+      res.status(404);
+      res.end();
+    }
+    else{
+      name=r.name;
+      console.log(name);
+      dbs.collection(date).countDocuments({ usn: stud_id, stud_name: r.name, sub_id: sub_id },function(e,r){
+        if(e) console.log(e);
+        // console.log(r);
+        if(r==0)
+        {
+          dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, res) {
+            if (e) console.log(e);
+            console.log("inserted"+res);
+            // console.log(res);
+          })
+        }else{
+          console.log("already exists");
+        }
+      // console.log(count);
+      // if(count==0){
+      
+        // console.log(r);
+      })
+    }
+  })
+ 
+  // }
+
 })
 
 
