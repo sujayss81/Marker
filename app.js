@@ -219,10 +219,10 @@ app.get("/present/:date/:sub_id",function(req,res,next){
     if(e) {next(e);}
     if(r==null)
     {
-      res.status(404);
-      res.end();
+      res.send(null);
     }else{
       res.status(200);
+      console.log(r);
       res.send(r);
     } 
   });
@@ -251,8 +251,7 @@ app.get("/absent/:date/:sub_id",function(req,res,next){
         if(err) next(err);
         if(result.length==0){
           console.log("everyone is present");
-          res.status(205);
-          res.end();
+          res.send(null)
         }else{
           res.send(result);
         }
