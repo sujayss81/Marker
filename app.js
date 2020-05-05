@@ -147,10 +147,10 @@ app.get('/attendence/:stud_id/:sub_id',function(req,res){
     else{
       name=r.name;
       console.log(name);
-      dbs.collection(date).countDocuments({ usn: stud_id, stud_name: r.name, sub_id: sub_id },function(e,r){
+      dbs.collection(date).countDocuments({ usn: stud_id, stud_name: r.name, sub_id: sub_id },function(e,resu){
         if(e) console.log(e);
-        // console.log(r);
-        if(r==0)
+        console.log(resu);
+        if(resu==0)
         {
           dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, result) {
             if (e) console.log(e);
