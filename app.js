@@ -235,21 +235,26 @@ app.get("/absent/:date/:sub_id",function(req,res,next){
   var ar = new Array();
   dbs.collection(date).find({ sub_id: sub_id }).toArray(function (e, r) {
     if (e) {next(e); }
+    console.log(r);
     if(r==null){
       res.status(404);
       res.end();
     }else{
       ar=r;
+      console.log("Array length is");
+      console.log(ar.length);
       var a=new Array();
       for(var i=0;i<ar.length;i++){
         a[i]=ar[i].usn;
       } 
       dbs.collection('students').find({usn: {$nin: a}}).toArray(function(err,result){
         if(err) next(err);
-        if(result==null){
+        if(result.length==0){
           console.log("everyone is present");
+          res.status(205);
+          res.end();
         }else{
-          console.log(result);
+          res.send(result);
         }
       })
     }
