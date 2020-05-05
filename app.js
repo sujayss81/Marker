@@ -112,6 +112,28 @@ app.post("/changePassword",function(req,res,next){
   })
 })
 
+app.post("/cPassword", function (req, res, next) {
+  var usn = req.body.usn;
+  var oldpassword = req.body.oldpassword;
+  var newpass = req.body.newpassword;
+  dbs.collection('students').findOne({ usn: usn, pass: oldpassword }, function (e, r) {
+    if (e) console.log(e);
+    if (r == null) {
+      res.status(404);
+      console.log("hello");
+      res.end();
+    } else {
+      var newvalues = { $set: { pass: newpass } };
+      dbs.collection('students').updateOne(r, newvalues, function (err, result) {
+        if (err) { res.status(500); res.end(); next(err); }
+        // console.log(res);
+        res.status(200);
+        res.end();
+      })
+    }
+  })
+})
+
 
 
 app.get("/generateQR/:subid",function(req,res){
