@@ -232,13 +232,19 @@ app.get("/present/:date/:sub_id",function(req,res,next){
 app.get("/absent/:date/:sub_id",function(req,res,next){
   var date = req.params.date;
   var sub_id = req.params.sub_id;
+  var ar = new Array();
   dbs.collection(date).find({ sub_id: sub_id }).toArray(function (e, r) {
     if (e) {next(e); }
     if(r==null){
       res.status(404);
       res.end();
     }else{
-      dbs.collection(date).find({_id: {$nin: r._id}}).toArray(function(err,result){
+      ar=r;
+      var a=new Array();
+      for(var i=0;i<ar.length;i++){
+        a[i]=ar[i].usn;
+      } 
+      dbs.collection('students').find({usn: {$nin: a}}).toArray(function(err,result){
         if(err) next(err);
         if(result==null){
           console.log("everyone is present");
