@@ -133,42 +133,56 @@ app.get("/generateQR/:subid",function(req,res){
   })
 })
 
-app.get('/attendence/:stud_id/:sub_id',function(req,res){
+app.get('/attendence/:stud_id/:sub_id/:qrtext',function(req,res,next){
   var date=myDate('date');
   var stud_id=req.params.stud_id;
   var sub_id=req.params.sub_id;
+  var  qrtext=req.params.qrtext;
   var name;
-  dbs.collection('students').findOne({usn:stud_id},function(e,r){
-    if(e) console.log(e);
-    if(r==null){
+  dbs.collection("subjects").findOne({sub_id:sub_id},function(err,re){
+    if(err) next(err);
+    if(re==null){
+      res.send(500);
+      res.end();
+    }
+    if(re.sub_qr!=qrtext){
       res.status(404);
       res.end();
     }
     else{
-      name=r.name;
-      console.log(name);
-      dbs.collection(date).countDocuments({ usn: stud_id, stud_name: r.name, sub_id: sub_id },function(e,resu){
-        if(e) console.log(e);
-        console.log(resu);
-        if(resu==0)
-        {
-          dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, result) {
-            if (e) console.log(e);
-            console.log("inserted"+result);
-            res.status(200)
+    dbs.collection('students').findOne({usn:stud_id},function(e,r){
+      if(e) console.log(e);
+      if(r==null){
+        res.status(500);
+        res.end();
+      }
+      else{
+        name=r.name;
+        console.log(name);
+        dbs.collection(date).countDocuments({ usn: stud_id, stud_name: r.name, sub_id: sub_id },function(e,resu){
+          if(e) console.log(e);
+          console.log(resu);
+          if(resu==0)
+          {
+            dbs.collection(date).insertOne({ usn: stud_id, stud_name: name, sub_id: sub_id }, function (e, result) {
+              if (e) console.log(e);
+              console.log("inserted"+result);
+              res.status(200)
+              res.end()
+              // console.log(res);
+            })
+          }else{
+            res.status(409)
             res.end()
-            // console.log(res);
-          })
-        }else{
-          res.status(409)
-          res.end()
-          console.log("already exists");
-        }
-      // console.log(count);
-      // if(count==0){
-      
-        // console.log(r);
-      })
+            console.log("already exists");
+          }
+        // console.log(count);
+        // if(count==0){
+        
+          // console.log(r);
+        })
+      }
+    })
     }
   })
  
