@@ -49,6 +49,7 @@ app.get("/addStudent", function (req, res) {
 });
 
 app.post("/studentLogin", function (req, res, next) {
+  console.log("Recevied");
   var usn = req.body.usn;
   var pass = req.body.password;
   console.log(req.body);
@@ -58,7 +59,8 @@ app.post("/studentLogin", function (req, res, next) {
       if (err) next(e);
       if (result == null) {
         res.status(404);
-        res.end();
+        // res.end();
+        console.log(result);
       } else {
         res.send(result);
       }
