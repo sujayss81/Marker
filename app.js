@@ -13,8 +13,6 @@ MongoClient.connect(process.env.MONGO_URL, function (err, db) {
   console.log("Database Connected");
 });
 // var bodyparser=require('body-parser');
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 
 var app = express();
 

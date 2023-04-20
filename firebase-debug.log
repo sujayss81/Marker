@@ -1,0 +1,712 @@
+[debug] [2023-04-20T18:46:19.775Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:46:19.777Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:46:19.777Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:46:19.777Z] Platform:      win32
+[debug] [2023-04-20T18:46:19.777Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:46:19.778Z] Time:          Fri Apr 21 2023 00:16:19 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:46:19.778Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:46:19.847Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:46:19.848Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:46:19.848Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:46:19.850Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:46:19.851Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:19.851Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:46:20.223Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:46:20.223Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:46:20.223Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:46:20.224Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:46:21.572Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:46:21.572Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:46:21.575Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:46:21.983Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:46:21.983Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:46:21.984Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:46:21.985Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:21.986Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:46:21.986Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:21.986Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:46:21.986Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:21.987Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:46:21.987Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:23.623Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:46:23.623Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:23.636Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:46:23.636Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:23.637Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:46:23.637Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:23.656Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:46:23.656Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:46:23.656Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:46:24.059Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:46:24.059Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:46:24.060Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:46:24.531Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:46:24.531Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:46:24.533Z] Validating nodejs source
+[debug] [2023-04-20T18:46:25.967Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:46:25.967Z] Building nodejs source
+[debug] [2023-04-20T18:46:25.969Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:46:25.996Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:46:38.653Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:46:38.655Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:46:38.655Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:46:38.655Z] Platform:      win32
+[debug] [2023-04-20T18:46:38.656Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:46:38.656Z] Time:          Fri Apr 21 2023 00:16:38 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:46:38.657Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:46:38.720Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:46:38.720Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:46:38.720Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:46:38.722Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:46:38.722Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:38.723Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:46:40.033Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:46:40.033Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:46:40.034Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:46:40.034Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:46:41.280Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:46:41.281Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:46:41.283Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:46:41.883Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:46:41.883Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:46:41.885Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:46:41.885Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:41.886Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:46:41.886Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:41.887Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:46:41.887Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:41.888Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:46:41.888Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:46:43.515Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:46:43.515Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:43.542Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:46:43.542Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:46:43.548Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:46:43.548Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:43.781Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:46:43.781Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:46:43.781Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:46:44.187Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:46:44.188Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:46:44.188Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:46:44.565Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:46:44.565Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:46:44.567Z] Validating nodejs source
+[debug] [2023-04-20T18:46:45.916Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:46:45.916Z] Building nodejs source
+[debug] [2023-04-20T18:46:45.917Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:46:45.945Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:47:27.331Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:47:27.333Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:47:27.333Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:47:27.333Z] Platform:      win32
+[debug] [2023-04-20T18:47:27.333Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:47:27.335Z] Time:          Fri Apr 21 2023 00:17:27 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:47:27.335Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:47:27.400Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:47:27.400Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:47:27.400Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:47:27.403Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:47:27.403Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:47:27.403Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:47:28.714Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:47:28.715Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:47:28.715Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:47:28.715Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:47:30.189Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:47:30.190Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:47:30.192Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:47:30.835Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:47:30.835Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:47:30.837Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:47:30.837Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:47:30.838Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:47:30.838Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:47:30.839Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:47:30.839Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:47:30.840Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:47:30.840Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:47:32.453Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:47:32.453Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:47:32.479Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:47:32.479Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:47:32.486Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:47:32.486Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:47:32.491Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:47:32.491Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:47:32.491Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:47:33.118Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:47:33.118Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:47:33.118Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:47:34.723Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:47:34.723Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:47:34.724Z] Validating nodejs source
+[debug] [2023-04-20T18:47:37.059Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:47:37.060Z] Building nodejs source
+[debug] [2023-04-20T18:47:37.061Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:47:37.092Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:48:41.565Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:48:41.567Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:48:41.568Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:48:41.569Z] Platform:      win32
+[debug] [2023-04-20T18:48:41.569Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:48:41.570Z] Time:          Fri Apr 21 2023 00:18:41 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:48:41.570Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:48:41.639Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:48:41.640Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:48:41.640Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:48:41.643Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:48:41.643Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:48:41.643Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:48:43.077Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:48:43.077Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:48:43.078Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:48:43.078Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:48:44.324Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:48:44.324Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:48:44.327Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:48:45.414Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:48:45.414Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:48:45.416Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:48:45.416Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:48:45.417Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:48:45.417Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:48:45.418Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:48:45.418Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:48:45.419Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:48:45.419Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:48:47.156Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:48:47.156Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:48:47.162Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:48:47.162Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:48:47.171Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:48:47.171Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:48:47.177Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:48:47.177Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:48:47.178Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:48:47.629Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:48:47.629Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:48:47.629Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:48:48.013Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:48:48.013Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:48:48.014Z] Validating nodejs source
+[debug] [2023-04-20T18:48:49.463Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:48:49.463Z] Building nodejs source
+[debug] [2023-04-20T18:48:49.464Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:48:49.494Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:49:42.193Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:49:42.195Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:49:42.195Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:49:42.195Z] Platform:      win32
+[debug] [2023-04-20T18:49:42.195Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:49:42.196Z] Time:          Fri Apr 21 2023 00:19:42 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:49:42.196Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:49:42.264Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:49:42.265Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:49:42.265Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:49:42.267Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:49:42.267Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:49:42.267Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:49:43.579Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:49:43.579Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:49:43.579Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:49:43.579Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:49:45.054Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:49:45.054Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:49:45.057Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:49:45.463Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:49:45.463Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:49:45.465Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:49:45.465Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:49:45.466Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:49:45.466Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:49:45.466Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:49:45.467Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:49:45.468Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:49:45.468Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:49:47.100Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:49:47.100Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:49:47.109Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:49:47.109Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:49:47.110Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:49:47.110Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:49:47.144Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:49:47.144Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:49:47.145Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:49:47.751Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:49:47.751Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:49:47.752Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:49:48.183Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:49:48.183Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:49:48.185Z] Validating nodejs source
+[debug] [2023-04-20T18:49:49.473Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:49:49.473Z] Building nodejs source
+[debug] [2023-04-20T18:49:49.474Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:49:49.495Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:52:56.990Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:52:56.992Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:52:56.992Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:52:56.993Z] Platform:      win32
+[debug] [2023-04-20T18:52:56.993Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:52:56.994Z] Time:          Fri Apr 21 2023 00:22:56 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:52:56.994Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:52:57.059Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:52:57.060Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:52:57.060Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:52:57.062Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:52:57.062Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:52:57.062Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:52:58.351Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:52:58.352Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:52:58.352Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:52:58.352Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:52:59.698Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:52:59.698Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:52:59.701Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:53:00.336Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:53:00.336Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:53:00.339Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:53:00.339Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:00.340Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:53:00.340Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:00.341Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:53:00.341Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:00.341Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:53:00.341Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:02.008Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:53:02.008Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:53:02.031Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:53:02.031Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:02.085Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:53:02.085Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:02.092Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:53:02.093Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:02.093Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:53:02.523Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:53:02.523Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:53:02.523Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:53:03.490Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:53:03.490Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:53:03.492Z] Validating nodejs source
+[debug] [2023-04-20T18:53:05.844Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:53:05.844Z] Building nodejs source
+[debug] [2023-04-20T18:53:05.845Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:53:05.877Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:53:51.360Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:53:51.361Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:53:51.362Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:53:51.362Z] Platform:      win32
+[debug] [2023-04-20T18:53:51.362Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:53:51.363Z] Time:          Fri Apr 21 2023 00:23:51 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:53:51.363Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:53:51.428Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:53:51.428Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:53:51.428Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:53:51.430Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:53:51.431Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:51.431Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:53:52.875Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:53:52.876Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:53:52.876Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:53:52.876Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:53:54.131Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:53:54.132Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:53:54.137Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:53:54.889Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:53:54.889Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:53:54.891Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:53:54.891Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:54.892Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:53:54.892Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:54.893Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:53:54.893Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:54.893Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:53:54.893Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:53:56.658Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:53:56.658Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:53:56.659Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:53:56.659Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:56.670Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:53:56.670Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:56.682Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:53:56.682Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:53:56.682Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:53:57.299Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:53:57.299Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:53:57.299Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:53:57.690Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:53:57.690Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:53:57.692Z] Validating nodejs source
+[debug] [2023-04-20T18:54:00.134Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:54:00.134Z] Building nodejs source
+[debug] [2023-04-20T18:54:00.135Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:54:00.167Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-20T18:54:51.696Z] ----------------------------------------------------------------------
+[debug] [2023-04-20T18:54:51.698Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-20T18:54:51.699Z] CLI Version:   11.19.0
+[debug] [2023-04-20T18:54:51.699Z] Platform:      win32
+[debug] [2023-04-20T18:54:51.699Z] Node Version:  v18.12.1
+[debug] [2023-04-20T18:54:51.700Z] Time:          Fri Apr 21 2023 00:24:51 GMT+0530 (India Standard Time)
+[debug] [2023-04-20T18:54:51.700Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-20T18:54:51.764Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-20T18:54:51.764Z] > authorizing via signed-in user (sujay.ss81@gmail.com)
+[debug] [2023-04-20T18:54:51.764Z] [iam] checking project marker-709a1 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-04-20T18:54:51.767Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions [none]
+[debug] [2023-04-20T18:54:51.767Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:54:51.767Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:54:53.089Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions 200
+[debug] [2023-04-20T18:54:53.089Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/marker-709a1:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-04-20T18:54:53.089Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-04-20T18:54:53.089Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-04-20T18:54:54.336Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-04-20T18:54:54.336Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/marker-709a1/serviceAccounts/marker-709a1@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'marker-709a1'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-04-20T18:54:54.339Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 [none]
+[debug] [2023-04-20T18:54:54.736Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 200
+[debug] [2023-04-20T18:54:54.737Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1 {"projectId":"marker-709a1","projectNumber":"776121616957","displayName":"Marker","name":"projects/marker-709a1","resources":{"hostingSite":"marker-709a1"},"state":"ACTIVE","etag":"1_2afe42ec-c64e-49c0-8992-4af616672e76"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-04-20T18:54:54.739Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-04-20T18:54:54.739Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:54:54.740Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-04-20T18:54:54.740Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:54:54.740Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [none]
+[debug] [2023-04-20T18:54:54.740Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:54:54.741Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [none]
+[debug] [2023-04-20T18:54:54.741Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com x-goog-quota-user=projects/marker-709a1
+[debug] [2023-04-20T18:54:56.371Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com 200
+[debug] [2023-04-20T18:54:56.371Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/artifactregistry.googleapis.com [omitted]
+[info] +  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-04-20T18:54:56.378Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com 200
+[debug] [2023-04-20T18:54:56.378Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudfunctions.googleapis.com [omitted]
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-04-20T18:54:56.380Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com 200
+[debug] [2023-04-20T18:54:56.380Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-04-20T18:54:56.398Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com 200
+[debug] [2023-04-20T18:54:56.398Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/marker-709a1/services/cloudbuild.googleapis.com [omitted]
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-04-20T18:54:56.399Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig [none]
+[debug] [2023-04-20T18:54:56.999Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig 200
+[debug] [2023-04-20T18:54:57.000Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/marker-709a1/adminSdkConfig {"projectId":"marker-709a1","storageBucket":"marker-709a1.appspot.com"}
+[debug] [2023-04-20T18:54:57.000Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs [none]
+[debug] [2023-04-20T18:54:57.426Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs 200
+[debug] [2023-04-20T18:54:57.426Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/marker-709a1/configs {}
+[debug] [2023-04-20T18:54:57.428Z] Validating nodejs source
+[debug] [2023-04-20T18:54:58.762Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-04-20T18:54:58.762Z] Building nodejs source
+[debug] [2023-04-20T18:54:58.763Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-04-20T18:54:58.785Z] Error: spawn ./node_modules/.bin/firebase-functions ENOENT
+    at notFoundError (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:6:26)
+    at verifyENOENT (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:40:16)
+    at cp.emit (C:\Users\sujay\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\cross-spawn\lib\enoent.js:27:25)
+    at ChildProcess._handle.onexit (node:internal/child_process:291:12)
+[error] 
+[error] Error: An unexpected error has occurred.
